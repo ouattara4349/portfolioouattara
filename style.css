@@ -1,5 +1,5 @@
-* Design Gallery Styles */
-.design-card {
+
+/* .design-card {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
@@ -67,7 +67,7 @@
     border: 1px solid rgba(249, 115, 22, 0.3);
 }
 
-/* Lightbox styles */
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -141,4 +141,7 @@
     text-align: center;
     color: white;
     padding: 0.5rem;
-}
+} */
+
+
+/
