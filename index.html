@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="loader.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -336,6 +337,21 @@
 
   <body class="bg-black text-white">
 
+    <!-- Page loader (overlay) -->
+    <div id="page-loader" class="page-loader" aria-hidden="false">
+      <div class="scene">
+        <div class="cube" aria-hidden="true">
+          <div class="face face1"><span>CYBERSECURITE</span></div>
+          <div class="face face2"><span>SOC</span></div>
+          <div class="face face3"><span>PENTEST</span></div>
+          <div class="face face4"><span>AUDIT</span></div>
+          <div class="face face5"></div>
+          <div class="face face6"></div>
+        </div>
+      </div>
+      <div class="label">Chargement<span class="dots">…</span></div>
+    </div>
+
     <!-- ===== NAVIGATION ===== -->
     <header class="fixed w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm">
       <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -384,22 +400,23 @@
             </div>
             <h2 class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-2">Bonjour, moi c'est</h2>
             <h1 class="animated-text text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 break-words">
-              Ouattara Yacouba Stéphane
+              Ouattara Yacouba Stephane
             </h1>
             <p class="text-orange-500 text-base sm:text-lg font-semibold mb-2">
-              Ingénieur Cybersécurité Junior &amp; Formateur
+              Consultant junior en cybersécurité &amp; SI 
             </p>
             <p class="text-gray-300 text-sm sm:text-base mb-8 leading-relaxed">
               Spécialisé en sécurité des systèmes d'information, SOC, pentest et administration réseau. 
               Formateur certifié en cybersécurité &amp; hacking éthique.
             </p>
             <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
+              <span class="cert-badge"><i class="fas fa-shield-alt"></i> EHE</span>
               <span class="cert-badge"><i class="fas fa-shield-alt"></i> CompTIA Security+</span>
               <span class="cert-badge"><i class="fas fa-user-secret"></i> CEH — EC-Council</span>
               <span class="cert-badge"><i class="fas fa-network-wired"></i> CCNA</span>
               <span class="cert-badge"><i class="fab fa-redhat"></i> RHCSA</span>
             </div>
-            <a href="image/cv (1).pdf" download target="_blank"
+            <a href="image/CV  Ouattara Yacouba Stephane - Consultant junior en  SI, Réseaux & Cybersécurité (2).pdf" download target="_blank"
               class="inline-block bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl">
               Télécharger mon CV
             </a>
@@ -419,7 +436,7 @@
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
           <div class="stat-card bg-gradient-to-br from-black to-gray-900 p-6 rounded-xl border border-gray-800 text-center shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300">
-            <h3 class="text-3xl font-bold text-orange-600 mb-2">1+</h3>
+            <h3 class="text-3xl font-bold text-orange-600 mb-2">2+</h3>
             <p class="text-gray-300">an d'expérience</p>
           </div>
           <div class="stat-card bg-gradient-to-br from-black to-gray-900 p-6 rounded-xl border border-gray-800 text-center shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300">
@@ -459,9 +476,9 @@
           </div>
 
           <div class="md:w-1/2 about-text">
-            <p class="text-orange-500 font-semibold mb-3 uppercase tracking-widest text-sm">Ingénieur Cybersécurité Junior</p>
+            <p class="text-orange-500 font-semibold mb-3 uppercase tracking-widest text-sm">Consultant junior en cybersécurité &amp; SI — SISBM</p>
             <p class="text-gray-300 mb-4">
-              Je suis <strong class="text-orange-600">Ouattara Yacouba Stéphane</strong>, ingénieur junior en sécurité des systèmes d'information, basé à Abidjan, Côte d'Ivoire.
+              Je suis <strong class="text-orange-600">Ouattara Yacouba Stephane</strong>, Consultant junior en cybersécurité et systèmes d'information chez <strong class="text-orange-600">SISBM</strong>, basé à Abidjan, Côte d'Ivoire.
             </p>
             <p class="text-gray-300 mb-4">
               J'interviens sur le déploiement de solutions SIEM, la refonte d'architectures réseau, l'audit de sécurité des systèmes, la gestion de la sauvegarde et de la virtualisation. Je suis également <strong class="text-white">Formateur en Cybersécurité &amp; Hacking Éthique</strong> chez CodeCodeur.
@@ -626,8 +643,8 @@
                 <span class="bg-orange-600 text-white text-xs px-3 py-1 rounded-full">Poste actuel</span>
                 <div class="text-orange-600 text-sm">Janvier 2026 — Aujourd'hui</div>
               </div>
-              <div class="text-white text-xl font-semibold mb-2">Ingénieur Cybersécurité Junior</div>
-              <div class="text-gray-300 mb-4 text-sm">Abidjan, Côte d'Ivoire</div>
+              <div class="text-white text-xl font-semibold mb-2">Consultant junior en cybersécurité &amp; SI — SISBM</div>
+              <div class="text-gray-300 mb-4 text-sm">SISBM — Abidjan, Côte d'Ivoire</div>
               <ul class="text-gray-400 text-sm space-y-1 list-disc list-inside">
                 <li>Déploiement et configuration de SIEM (Wazuh)</li>
                 <li>Formation du personnel en cybersécurité</li>
@@ -643,7 +660,7 @@
             <div class="bg-gradient-to-br from-black to-gray-900 p-8 rounded-2xl shadow-xl relative border border-gray-800">
               <div class="text-orange-600 mb-2">2025 — Aujourd'hui</div>
               <div class="text-white text-xl font-semibold mb-2">Formateur en Cybersécurité & Hacking Éthique</div>
-              <div class="text-gray-300 mb-4">CodeCodeur / ACCESS INFORMATIQUE — Abidjan</div>
+              <div class="text-gray-300 mb-4">CodeCodeur Abidjan</div>
               <ul class="text-gray-400 text-sm space-y-1 list-disc list-inside">
                 <li>Modules de reconnaissance passive &amp; active (OSINT, Nmap)</li>
                 <li>Web Pentest (DVWA, PortSwigger, Nikto)</li>
@@ -899,6 +916,7 @@
         </div>
       </div>
     </section>
+    <script src="loader.js"></script>
 
     <!-- ===== LANGAGES DE PROGRAMMATION ===== -->
     <section class="py-10 bg-black bg-opacity-60">
