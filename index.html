@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="loader.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -337,21 +336,6 @@
 
   <body class="bg-black text-white">
 
-    <!-- Page loader (overlay) -->
-    <div id="page-loader" class="page-loader" aria-hidden="false">
-      <div class="scene">
-        <div class="cube" aria-hidden="true">
-          <div class="face face1"><span>CYBERSECURITE</span></div>
-          <div class="face face2"><span>SOC</span></div>
-          <div class="face face3"><span>PENTEST</span></div>
-          <div class="face face4"><span>AUDIT</span></div>
-          <div class="face face5"></div>
-          <div class="face face6"></div>
-        </div>
-      </div>
-      <div class="label">Chargement<span class="dots">…</span></div>
-    </div>
-
     <!-- ===== NAVIGATION ===== -->
     <header class="fixed w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm">
       <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -415,6 +399,10 @@
               <span class="cert-badge"><i class="fas fa-user-secret"></i> CEH — EC-Council</span>
               <span class="cert-badge"><i class="fas fa-network-wired"></i> CCNA</span>
               <span class="cert-badge"><i class="fab fa-redhat"></i> RHCSA</span>
+              <span class="cert-badge"><i class="fas fa-user-shield"></i> CISSP</span>
+              <span class="cert-badge"><i class="fab fa-google"></i> Google Cloud</span>
+              <span class="cert-badge"><i class="fab fa-linux"></i> Linux</span>
+              <span class="cert-badge"><i class="fas fa-robot"></i> ChatGPT</span>
             </div>
             <a href="image/CV  Ouattara Yacouba Stephane - Consultant junior en  SI, Réseaux & Cybersécurité (2).pdf" download target="_blank"
               class="inline-block bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -440,7 +428,7 @@
             <p class="text-gray-300">an d'expérience</p>
           </div>
           <div class="stat-card bg-gradient-to-br from-black to-gray-900 p-6 rounded-xl border border-gray-800 text-center shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300">
-            <h3 class="text-3xl font-bold text-orange-600 mb-2">4</h3>
+            <h3 class="text-3xl font-bold text-orange-600 mb-2">14</h3>
             <p class="text-gray-300">Certifications</p>
           </div>
           <div class="stat-card bg-gradient-to-br from-black to-gray-900 p-6 rounded-xl border border-gray-800 text-center shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300">
@@ -760,7 +748,7 @@
         <div class="max-w-7xl mx-auto">
           <h2 class="text-5xl font-bold text-center text-white mb-4">Mes Certificats</h2>
           <p class="text-center text-gray-300 mb-16 text-lg">
-            Certifications obtenues via des programmes officiels et centres partenaires agréés.
+            Plusieurs certifications obtenues via des programmes officiels et centres partenaires agréés.
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="certificates-grid">
@@ -895,6 +883,104 @@
               </div>
             </div>
 
+            <!-- Certificat 8 : Cybersécurité Introduction -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(7)">
+                <img src="image/cybersec.jpg" alt="Cybersécurité Introduction" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">Cybersécurité Introduction</h3>
+                    <p class="text-gray-200 text-sm">Introduction à la cybersécurité</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#8</div>
+              </div>
+            </div>
+
+            <!-- Certificat 9 : CISSP -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(8)">
+                <img src="image/certificat cissp_page-0001.jpg" alt="CISSP" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">CISSP</h3>
+                    <p class="text-gray-200 text-sm">Certified Information Systems Security Professional</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#9</div>
+              </div>
+            </div>
+
+            <!-- Certificat 10 : Linux (1) -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(9)">
+                <img src="image/certificat linux_page-0001 (1).jpg" alt="Certificat Linux" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">Certificat Linux</h3>
+                    <p class="text-gray-200 text-sm">Administration et sécurité Linux</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#10</div>
+              </div>
+            </div>
+
+            <!-- Certificat 11 : Linux -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(10)">
+                <img src="image/certificat linux_page-0001.jpg" alt="Certificat Linux" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">Certificat Linux</h3>
+                    <p class="text-gray-200 text-sm">Administration et sécurité Linux</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#11</div>
+              </div>
+            </div>
+
+            <!-- Certificat 12 : ChatGPT -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(11)">
+                <img src="image/chatgpt certif.jpg" alt="ChatGPT" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">ChatGPT</h3>
+                    <p class="text-gray-200 text-sm">Certificat ChatGPT</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#12</div>
+              </div>
+            </div>
+
+            <!-- Certificat 13 : Google Cloud -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(12)">
+                <img src="image/google cloud_page-0001.jpg" alt="Google Cloud" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">Google Cloud</h3>
+                    <p class="text-gray-200 text-sm">Certificat Google Cloud</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#13</div>
+              </div>
+            </div>
+
+            <!-- Certificat 14 : Hacking -->
+            <div class="fade-in-up" style="animation-delay: 900ms">
+              <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105" onclick="openModal(13)">
+                <img src="image/hacking certif_page-0001.jpg" alt="Hacking" class="w-full h-64 object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div class="p-6 w-full">
+                    <h3 class="text-white text-xl font-bold mb-2">Hacking</h3>
+                    <p class="text-gray-200 text-sm">Certificat Hacking</p>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">#14</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -916,7 +1002,6 @@
         </div>
       </div>
     </section>
-    <script src="loader.js"></script>
 
     <!-- ===== LANGAGES DE PROGRAMMATION ===== -->
     <section class="py-10 bg-black bg-opacity-60">
@@ -1450,13 +1535,20 @@
 
       // Données des certificats pour le modal
       const certificates = [
-        { title: "CompTIA Security+", description: "GSIMEL Académie — Partenaire officiel CompTIA · Janvier–Mars 2026. Certification internationale couvrant les fondamentaux de la cyberdéfense.", image: "image/certificat-CCNA1.png" },
-        { title: "Ethical Hacking Essentials (EHE) — EC-Council", description: "GSIMEL Académie — Programme officiel EC-Council · Mai 2026. Techniques offensives et défensives en hacking éthique.", image: "image/certifier hacker etick.jpeg" },
-        { title: "CCNA 1, 2 & 3", description: "SKILLGATE — Partenaire officiel Cisco · 2025. Maîtrise des concepts de réseautage Cisco, routage, switching et sécurité réseau.", image: "image/Certificat CCNA 3 2025 OUATTARA YACOUBA STEPHANE_page-0001.jpg" },
-        { title: "RHCSA — Red Hat Certified System Administrator", description: "SKILLGATE — Partenaire officiel Red Hat · 2025. Administration système Linux Red Hat.", image: "image/certifié-CCNA1cisco.png" },
-        { title: "Formation Hacking Éthique", description: "GSIMEL Académie, Abidjan · Mai 2025. Formation spécialisée en sécurité informatique avancée, hacking, espionnage et contre-espionnage.", image: "image/certificat-CCNA1.png" },
-        { title: "Fondamentaux des Réseaux Informatiques", description: "TIENUABRI EXPERTISE GROUP SARL, Burkina Faso · Novembre 2025. Formation d'un mois sur les bases essentielles des réseaux.", image: "image/certif.jpeg" },
-        { title: "Attestation de Stage IT & Communication", description: "Genius Network Technology · 6 mois 2024/2025. Stage pratique en réseaux informatique, vidéosurveillance et design graphique.", image: "image/attestation genius .jpeg" },
+        { title: "CompTIA Security+", description: "GSIMEL Académie — Partenaire officiel CompTIA · Janvier–Mars 2026", image: "image/COMPT.jfif" },
+        { title: "Ethical Hacking Essentials (EHE) — EC-Council", description: "GSIMEL Académie — Programme officiel EC-Council · Mai 2026", image: "image/ehe.webp" },
+        { title: "CCNA 1, 2 & 3", description: "SKILLGATE — Partenaire officiel Cisco · 2025", image: "image/Certificat CCNA 3 2025 OUATTARA YACOUBA STEPHANE_page-0001.jpg" },
+        { title: "RHCSA — Red Hat Certified System Administrator", description: "SKILLGATE — Partenaire officiel Red Hat · 2025", image: "image/certifié-CCNA1cisco.png" },
+        { title: "Formation Hacking Éthique", description: "GSIMEL Académie, Abidjan · Mai 2025", image: "image/certifier hacker etick.jpeg" },
+        { title: "Fondamentaux des Réseaux Informatiques", description: "TIENUABRI EXPERTISE GROUP SARL, Burkina Faso · Novembre 2025", image: "image/certif.jpeg" },
+        { title: "Attestation de Stage IT & Communication", description: "Genius Network Technology · 6 mois 2024/2025", image: "image/attestation genius .jpeg" },
+        { title: "Cybersécurité Introduction", description: "Introduction à la cybersécurité", image: "image/cybersec.jpg" },
+        { title: "CISSP", description: "Certified Information Systems Security Professional", image: "image/certificat cissp_page-0001.jpg" },
+        { title: "Certificat Linux", description: "Administration et sécurité Linux", image: "image/certificat linux_page-0001 (1).jpg" },
+        { title: "Certificat Linux", description: "Administration et sécurité Linux", image: "image/certificat linux_page-0001.jpg" },
+        { title: "ChatGPT", description: "Certificat ChatGPT", image: "image/chatgpt certif.jpg" },
+        { title: "Google Cloud", description: "Certificat Google Cloud", image: "image/google cloud_page-0001.jpg" },
+        { title: "Hacking", description: "Certificat Hacking", image: "image/hacking certif_page-0001.jpg" },
       ];
 
       function openModal(index) {
@@ -1475,8 +1567,6 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeModal();
       });
-
-      window.addEventListener("load", () => { document.body.classList.add("loaded"); });
     </script>
 
     <!-- Design Gallery Lightbox -->
@@ -1485,9 +1575,6 @@
     <style>
       .animate-in { animation: fadeInUp 0.6s ease-out forwards; }
       @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-      body:not(.loaded) { overflow: hidden; }
-      body:not(.loaded)::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; animation: fadeOut 0.5s ease-out 0.5s forwards; }
-      @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
       @media (max-width: 640px) {
         .hero-text h1 { font-size: 2rem; line-height: 1.2; }
         .company-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -1504,6 +1591,5 @@
       *:focus { outline: 2px solid #f97316; outline-offset: 2px; }
       input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3); }
     </style>
-    <script src="robot-cursor.js"></script>
   </body>
 </html>
