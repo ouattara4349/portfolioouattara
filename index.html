@@ -26,6 +26,10 @@
           max-width: 100%;
       }
 
+      code, pre, kbd, samp, textarea, input, button {
+          font-family: 'Poppins', sans-serif !important;
+      }
+
       @keyframes float {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
@@ -332,9 +336,26 @@
           overflow: hidden;
       }
     </style>
+      <!-- Motion design -->
+    <link rel="stylesheet" href="loader.css" />
+    <link rel="stylesheet" href="motion.css" />
   </head>
 
   <body class="bg-black text-white">
+
+    <!-- Loader -->
+    <div class="page-loader" id="page-loader" aria-hidden="true">
+      <div class="scene"><div class="cube">
+        <div class="face face1"><span>SOC</span></div>
+        <div class="face face2"><span>PENTEST</span></div>
+        <div class="face face3"><span>RÉSEAUX</span></div>
+        <div class="face face4"><span>GRC</span></div>
+        <div class="face face5"><span>&lt;/&gt;</span></div>
+        <div class="face face6"><span>0101</span></div>
+      </div></div>
+      <div class="label">Chargement<span class="dots">...</span></div>
+      <div class="m-loader-bar"><i></i></div>
+    </div>
 
     <header class="fixed w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm">
       <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
@@ -1231,6 +1252,48 @@
         </div>
       </div>
 
+
+      <!-- PROJET : MAQUIS STOCK & CAISSE -->
+      <a href="https://gstock.sisbm-ci.com/index-v2.html" target="_blank" rel="noopener noreferrer" class="block">
+        <div class="project-card bg-gradient-to-br from-black to-gray-900 rounded-xl border border-gray-800 shadow-lg overflow-hidden h-full">
+          <div class="w-full h-44 overflow-hidden">
+            <img
+              src="image/stock.png"
+              alt="Tableau de bord Maquis Stock & Caisse"
+              class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <i class="fas fa-cash-register text-orange-600 text-xl"></i>
+              <h3 class="text-xl font-semibold text-white">Maquis Stock & Caisse</h3>
+            </div>
+            <p class="text-gray-300 mb-4">Application web de gestion de stock, caisse et ventes pour un maquis : comptes caissières, suivi du chiffre d'affaires, alertes de stock et tableau de bord admin.</p>
+            <span class="inline-block project-tag-web text-white px-3 py-1 rounded-full text-sm">Gestion de stock · Caisse · Web app</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PROJET : Pentest 20xTrade (SaaS) -->
+      <a href="https://20xtrade.djanvoue.com/login" target="_blank" rel="noopener noreferrer" class="block">
+        <div class="project-card bg-gradient-to-br from-black to-gray-900 rounded-xl border border-gray-800 shadow-lg overflow-hidden h-full">
+          <div class="w-full h-44 overflow-hidden">
+            <img
+              src="image/pentest.jpeg"
+              alt="Faille IDOR détectée sur l'API 20xTrade"
+              class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <i class="fas fa-user-secret text-orange-600 text-xl"></i>
+              <h3 class="text-xl font-semibold text-white">Pentest Web — 20xTrade (SaaS)</h3>
+            </div>
+            <p class="text-gray-300 mb-4">Test d'intrusion autorisé sur le SaaS de gestion commerciale 20xTrade : reconnaissance, extraction des endpoints API, et découverte d'une faille critique de contrôle d'accès multi-tenant (IDOR) sur les données clients et trésorerie.</p>
+            <span class="inline-block project-tag-cyber text-white px-3 py-1 rounded-full text-sm">Pentest Web · API · IDOR</span>
+          </div>
+        </div>
+      </a>
       <!-- ======================================================== -->
       <!-- PROJET 9 : Site ONG                                      -->
       <!-- 👉 REMPLACE ICI : src="image/TON-FICHIER.png"            -->
@@ -1590,5 +1653,6 @@
       *:focus { outline: 2px solid #f97316; outline-offset: 2px; }
       input:focus, textarea:focus { box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3); }
     </style>
+      <script src="motion.js" defer></script>
   </body>
 </html>

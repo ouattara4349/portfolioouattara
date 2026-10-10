@@ -1,0 +1,189 @@
+/* ==========================================================
+   motion.css — animations motion design du portfolio
+   Tout est préfixé "m-" pour ne rien casser dans ton code.
+   ========================================================== */
+
+/* ---------- Loader : sécurité si le JS ne tourne pas ---------- */
+.page-loader { animation: m-failsafe .6s 4.8s forwards; }
+@keyframes m-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+.page-loader.hide { pointer-events: none; }
+.m-loader-bar { width: 180px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.12); overflow: hidden; }
+.m-loader-bar i { display: block; height: 100%; width: 100%; transform-origin: left; transform: scaleX(0);
+  background: linear-gradient(90deg, #f97316, #dc2626); animation: m-load 1.8s cubic-bezier(.3,.7,.2,1) forwards; }
+@keyframes m-load { to { transform: scaleX(1); } }
+
+/* ---------- Barre de progression du scroll ---------- */
+#m-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9000; pointer-events: none;
+  transform-origin: left; transform: scaleX(0); background: linear-gradient(90deg, #f97316, #dc2626, #7c3aed);
+  box-shadow: 0 0 12px rgba(249,115,22,.7); }
+
+/* ---------- Header : devient plus compact au scroll ---------- */
+header.fixed { transition: box-shadow .3s, border-color .3s, background-color .3s; border-bottom: 1px solid transparent; }
+header.fixed > div { transition: padding .3s ease; }
+header.fixed.m-scrolled { box-shadow: 0 8px 30px rgba(0,0,0,.55); border-bottom-color: rgba(249,115,22,.25); }
+header.fixed.m-scrolled > div { padding-top: .6rem; padding-bottom: .6rem; }
+
+/* Lien actif + soulignement animé */
+header nav a { position: relative; }
+header nav a::after { content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%;
+  background: linear-gradient(90deg, #f97316, #dc2626); transform: scaleX(0); transform-origin: left;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+header nav a:hover::after, header nav a.m-active::after { transform: scaleX(1); }
+header nav a.m-active { color: #ea580c; }
+
+section[id] { scroll-margin-top: 72px; }
+
+/* ---------- Entrée du hero (après le loader) ---------- */
+.m-stagger.m-stagger { opacity: 0; translate: 0 26px; filter: blur(8px);
+  transition: opacity .8s ease, translate .8s cubic-bezier(.2,.8,.2,1), filter .8s ease;
+  transition-delay: var(--d, 0ms); }
+body.is-ready .m-stagger.m-stagger { opacity: 1; translate: 0 0; filter: none; }
+
+.m-pop.m-pop { opacity: 0; scale: .6;
+  transition: opacity .5s ease, scale .6s cubic-bezier(.34,1.56,.64,1); transition-delay: var(--d, 0ms); }
+body.is-ready .m-pop.m-pop { opacity: 1; scale: 1; }
+.cert-badge { transition: transform .25s ease, background-color .25s, box-shadow .25s; }
+.cert-badge:hover { transform: translateY(-3px); background: rgba(249,115,22,.22); box-shadow: 0 6px 18px rgba(249,115,22,.25); }
+
+/* Ligne "terminal" qui s'écrit */
+.m-typed { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace !important; font-size: .95rem; color: #9ca3af;
+  margin: -.25rem 0 1.25rem; min-height: 1.6em; }
+.m-typed * { font-family: inherit !important; }
+.m-typed .m-prompt { color: #22c55e; margin-right: .5rem; }
+.m-typed .m-word { color: #fb923c; }
+.m-caret { display: inline-block; width: .55ch; height: 1.1em; margin-left: 2px; vertical-align: -.15em;
+  background: #f97316; animation: m-blink 1s steps(2, start) infinite; }
+@keyframes m-blink { to { visibility: hidden; } }
+
+/* Photo du hero : anneau tournant */
+.m-ring-wrap { position: relative; width: fit-content; }
+.m-ring { position: absolute; inset: -14px; border-radius: 9999px; pointer-events: none;
+  background: conic-gradient(from 0deg, #f97316, transparent 30%, #7c3aed 55%, transparent 75%, #dc2626);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  animation: m-spin 7s linear infinite; filter: drop-shadow(0 0 10px rgba(249,115,22,.6)); }
+.m-ring.m-ring-2 { inset: -26px; opacity: .45; animation-duration: 12s; animation-direction: reverse; }
+@keyframes m-spin { to { transform: rotate(360deg); } }
+
+/* Réseau de points en fond du hero */
+.m-hero { position: relative; overflow: hidden; }
+#m-net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.m-hero > .container { position: relative; z-index: 1; }
+
+/* ---------- Titres de section ---------- */
+.m-line::after { content: ""; display: block; height: 3px; width: 90px; margin: 14px auto 0; border-radius: 3px;
+  background: linear-gradient(90deg, #f97316, #dc2626); transform: scaleX(0);
+  transition: transform .9s cubic-bezier(.2,.8,.2,1) .25s; }
+.m-line.m-in::after { transform: scaleX(1); }
+
+/* ---------- Apparition au scroll (sans transform : pas de conflit) ---------- */
+.m-reveal.m-reveal { opacity: 0; translate: 0 40px; scale: .96; filter: blur(6px);
+  transition: opacity .8s ease, translate .9s cubic-bezier(.2,.8,.2,1), scale .9s cubic-bezier(.2,.8,.2,1), filter .8s ease;
+  transition-delay: var(--d, 0ms); }
+.m-reveal.m-reveal.m-in { opacity: 1; translate: 0 0; scale: 1; filter: none; }
+.fade-in-up.m-wait { animation-play-state: paused; }
+
+/* ---------- Barres de compétences ---------- */
+.skill-bar-transition.m-bar { width: var(--w) !important; transform: scaleX(0); transform-origin: left;
+  transition: transform 1.4s cubic-bezier(.2,.8,.2,1) !important; transition-delay: var(--d, 0ms) !important; }
+.skill-bar-transition.m-bar.m-in { transform: scaleX(1); }
+
+/* ---------- Ligne de la timeline qui se dessine ---------- */
+.timeline.m-tl::before { transform: translateX(-50%) scaleY(var(--tl, 1)); transform-origin: top;
+  background: linear-gradient(#f97316, #dc2626, #7c3aed); box-shadow: 0 0 12px rgba(249,115,22,.5); }
+
+/* ---------- Spot lumineux qui suit la souris sur les cartes ---------- */
+.m-spot { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(249,115,22,.16), transparent 60%); }
+.m-has-spot:hover > .m-spot { opacity: 1; }
+
+/* ---------- Halo qui suit le curseur ---------- */
+#m-cursor { position: fixed; left: 0; top: 0; width: 480px; height: 480px; margin: -240px 0 0 -240px; z-index: 40;
+  pointer-events: none; opacity: 0; transition: opacity .5s; mix-blend-mode: screen; will-change: transform;
+  background: radial-gradient(circle, rgba(249,115,22,.13), transparent 62%); }
+#m-cursor.m-on { opacity: 1; }
+
+/* ---------- Modal des certificats ---------- */
+.modal.active > div { animation: m-modal .45s cubic-bezier(.2,.9,.3,1.2); }
+@keyframes m-modal { from { opacity: 0; transform: translateY(30px) scale(.92); } to { opacity: 1; transform: none; } }
+
+/* ---------- Accessibilité : mouvement réduit ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .m-stagger.m-stagger, .m-pop.m-pop, .m-reveal.m-reveal { opacity: 1 !important; translate: none !important; scale: none !important; filter: none !important; transition: none !important; }
+  .skill-bar-transition.m-bar { transform: none !important; }
+  .m-ring, .m-caret { animation: none !important; }
+  #m-net, #m-cursor { display: none !important; }
+  .m-line::after { transform: scaleX(1); transition: none; }
+}
+
+/* ==========================================================
+   Galerie d'affiches (#design-gallery)
+   Le préfixe #design-gallery garantit la priorité sur d'anciens styles.
+   ========================================================== */
+#design-gallery .gallery-grid { counter-reset: g; }
+#design-gallery .design-card { counter-increment: g; position: relative; aspect-ratio: 4 / 5; border-radius: 1rem;
+  overflow: hidden; background: #0b0b0b; border: 1px solid rgba(249,115,22,.22); cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5); will-change: transform;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s, border-color .45s; }
+#design-gallery .design-card:hover { border-color: rgba(249,115,22,.7); transition-duration: .12s, .45s, .45s;
+  box-shadow: 0 28px 55px -12px rgba(249,115,22,.4), 0 0 0 1px rgba(249,115,22,.25); }
+#design-gallery .design-image-container { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: inherit; }
+#design-gallery .design-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top;
+  filter: saturate(.9) brightness(.88); translate: var(--ix, 0) var(--iy, 0);
+  transition: transform .9s cubic-bezier(.2,.8,.2,1), filter .6s, translate .25s ease-out, scale 1.5s cubic-bezier(.2,.8,.2,1); }
+#design-gallery .design-card:hover .design-image { transform: scale(1.12) rotate(1.2deg); filter: saturate(1.1) brightness(1); }
+
+/* Reflet qui balaie la carte */
+#design-gallery .design-card::before { content: ""; position: absolute; inset: -20% -60%; z-index: 3; pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.22) 50%, transparent 60%);
+  transform: translateX(-100%); transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+#design-gallery .design-card:hover::before { transform: translateX(100%); }
+
+/* Numéro de l'affiche */
+#design-gallery .design-card::after { content: counter(g, decimal-leading-zero); position: absolute; top: .9rem; left: .9rem; z-index: 4;
+  font: 600 .75rem ui-monospace, Menlo, Consolas, monospace; letter-spacing: .1em; color: #fb923c; padding: .15rem .6rem;
+  border-radius: 999px; background: rgba(0,0,0,.65); border: 1px solid rgba(249,115,22,.45);
+  opacity: 0; translate: -12px 0; transition: opacity .4s, translate .5s cubic-bezier(.2,.8,.2,1); }
+#design-gallery .design-card:hover::after { opacity: 1; translate: 0 0; }
+
+/* Texte : glisse en cascade */
+#design-gallery .design-overlay { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1.25rem; opacity: 0; transition: opacity .45s;
+  background: linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.4) 55%, transparent 80%); }
+#design-gallery .design-card:hover .design-overlay { opacity: 1; }
+#design-gallery .design-overlay::before { content: ""; width: 0; height: 3px; border-radius: 3px; margin-bottom: .7rem;
+  background: linear-gradient(90deg, #f97316, #dc2626); transition: width .6s cubic-bezier(.2,.8,.2,1) .1s; }
+#design-gallery .design-card:hover .design-overlay::before { width: 56px; }
+#design-gallery .design-title { color: #fff; font-size: 1.15rem; line-height: 1.3; margin: 0 0 .3rem; }
+#design-gallery .design-description { color: #d1d5db; font-size: .85rem; font-weight: 500; margin: 0; }
+#design-gallery .design-tools { align-self: flex-start; margin-top: .7rem; padding: .2rem .75rem; border-radius: 999px; font-size: .72rem;
+  color: #fb923c; border: 1px solid rgba(249,115,22,.4); background: rgba(249,115,22,.12); }
+#design-gallery .design-title, #design-gallery .design-description, #design-gallery .design-tools {
+  opacity: 0; translate: 0 22px; transition: opacity .5s, translate .6s cubic-bezier(.2,.8,.2,1); }
+#design-gallery .design-card:hover .design-title { opacity: 1; translate: 0 0; transition-delay: .06s; }
+#design-gallery .design-card:hover .design-description { opacity: 1; translate: 0 0; transition-delay: .14s; }
+#design-gallery .design-card:hover .design-tools { opacity: 1; translate: 0 0; transition-delay: .22s; }
+
+/* Apparition en rideau au scroll (on masque le contenu, pas la carte : l'observateur la voit toujours) */
+#design-gallery .design-card.g-hide { border-color: transparent; background: transparent; box-shadow: none; }
+#design-gallery .design-card.g-hide.g-in { border-color: rgba(249,115,22,.22); background: #0b0b0b; box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  transition: border-color .8s ease var(--d, 0ms), background .8s ease var(--d, 0ms), box-shadow .8s ease var(--d, 0ms), transform .45s; }
+#design-gallery .design-card.g-hide .design-image-container { clip-path: var(--clip);
+  transition: clip-path 1.1s cubic-bezier(.77,0,.18,1) var(--d, 0ms); }
+#design-gallery .design-card.g-hide.g-in .design-image-container { clip-path: inset(0 0 0 0 round 1rem); }
+#design-gallery .design-card.g-hide .design-image { scale: 1.4; }
+#design-gallery .design-card.g-hide.g-in .design-image { scale: 1; transition-delay: 0s, 0s, 0s, var(--d, 0ms); }
+#design-gallery .design-card.g-hide.g-in::before { animation: m-flash 1.3s cubic-bezier(.4,0,.2,1) calc(var(--d, 0ms) + .8s) both; }
+@keyframes m-flash { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+/* Écrans tactiles : pas de survol → titre toujours visible */
+@media (hover: none) {
+  #design-gallery .design-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,.88), transparent 45%); }
+  #design-gallery .design-title { opacity: 1; translate: 0 0; font-size: 1rem; }
+  #design-gallery .design-overlay::before, #design-gallery .design-card::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #design-gallery .design-card, #design-gallery .design-image, #design-gallery .design-card::before { transition: none !important; animation: none !important; transform: none !important; }
+  #design-gallery .design-card.g-hide .design-image-container { clip-path: none !important; }
+}
