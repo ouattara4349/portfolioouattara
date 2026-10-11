@@ -15,10 +15,17 @@
   // Observe des éléments et appelle cb une seule fois quand ils entrent à l'écran
   const once = (els, cb, opts) => {
     if (!hasIO) { els.forEach(cb); return; }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { io.unobserve(e.target); cb(e.target); } });
-    }, opts || { threshold: 0.15 });
-    els.forEach((el) => io.observe(el));
+    // Deux frames d'attente avant de brancher l'observateur : la toute première
+    // notification d'un IntersectionObserver peut se baser sur une mise en page
+    // pas encore stabilisée (polices/CSS en cours de chargement) et déclencher
+    // l'animation à tort dès le chargement. On laisse le temps à la mise en page
+    // de se stabiliser avant de commencer à observer.
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { io.unobserve(e.target); cb(e.target); } });
+      }, opts || { threshold: 0.15 });
+      els.forEach((el) => io.observe(el));
+    }));
   };
 
   /* ---------- 1. Loader ---------- */
@@ -388,5 +395,49 @@
         });
       });
     }
+  });
+
+  /* ---------- 9. Entreprises collaboratives : dépliage au scroll ---------- */
+  safe("companies-fold", () => {
+    if (reduce) return;
+    const cards = $$("#companies .company-card-enhanced");
+    if (!cards.length) return;
+    cards.forEach((c, i) => {
+      c.classList.add("c-fold");
+      c.style.setProperty("--d", i * 120 + "ms");
+    });
+    const start = () => once(cards, (c) => {
+      c.classList.add("c-in");
+      const d = parseInt(c.style.getPropertyValue("--d")) || 0;
+      setTimeout(() => {
+        c.classList.remove("c-fold", "c-in");
+        c.style.removeProperty("--d");
+      }, 1400 + d);
+    }, { threshold: 0.25, rootMargin: "0px 0px -30px 0px" });
+    // On attend que tout soit chargé (images comprises) pour éviter qu'un décalage
+    // de mise en page pendant le chargement ne déclenche l'animation trop tôt.
+    if (document.readyState === "complete") start();
+    else addEventListener("load", start, { once: true });
+  });
+
+  /* ---------- 10. Curseur personnalisé : petite goutte d'eau ---------- */
+  safe("cursor-dot", () => {
+    if (!fine || reduce) return;
+    const dot = document.createElement("div");
+    dot.id = "m-dot";
+    document.body.appendChild(dot);
+    document.body.classList.add("m-cursor-ready");
+
+    let shown = false;
+    addEventListener("pointermove", (e) => {
+      dot.style.transform = "translate(" + e.clientX + "px, " + e.clientY + "px) rotate(-45deg)";
+      if (!shown) { dot.classList.add("m-on"); shown = true; }
+      const link = e.target.closest && e.target.closest("a, button, input, textarea, [role='button']");
+      dot.classList.toggle("m-link", !!link);
+    }, { passive: true });
+
+    document.documentElement.addEventListener("pointerleave", () => { dot.classList.remove("m-on"); shown = false; });
+    addEventListener("pointerdown", () => dot.classList.add("m-down"), { passive: true });
+    addEventListener("pointerup", () => dot.classList.remove("m-down"), { passive: true });
   });
 })();

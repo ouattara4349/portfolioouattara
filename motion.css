@@ -187,3 +187,75 @@ body.is-ready .m-pop.m-pop { opacity: 1; scale: 1; }
   #design-gallery .design-card, #design-gallery .design-image, #design-gallery .design-card::before { transition: none !important; animation: none !important; transform: none !important; }
   #design-gallery .design-card.g-hide .design-image-container { clip-path: none !important; }
 }
+/* ==========================================================
+   Entreprises Collaboratives (#companies) — effet "dépliage"
+   ========================================================== */
+#companies .company-card-enhanced { transform-origin: top center; backface-visibility: hidden; }
+#companies .company-card-enhanced.c-fold {
+  opacity: 0;
+  transform: perspective(900px) rotateX(-90deg) translateY(-24px);
+  transition: opacity .5s ease, transform .85s cubic-bezier(.34,1.56,.64,1);
+  transition-delay: var(--d, 0ms);
+}
+#companies .company-card-enhanced.c-fold.c-in {
+  opacity: 1;
+  transform: perspective(900px) rotateX(0deg) translateY(0);
+}
+#companies .company-logo-enhanced { transition: transform .5s cubic-bezier(.34,1.56,.64,1), filter .4s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  #companies .company-card-enhanced.c-fold { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+/* ==========================================================
+   Photo "À propos" : crossfade au survol (moi.png ↔ profile2.png)
+   ========================================================== */
+#about .about-photo-container img.about-photo-alt {
+  position: absolute !important;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity .6s ease, transform .6s ease;
+}
+#about .about-photo-container:hover img.about-photo-alt { opacity: 1; transform: scale(1); }
+#about .about-photo-container img:not(.about-photo-alt) { transition: opacity .6s ease; }
+#about .about-photo-container:hover img:not(.about-photo-alt) { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  #about .about-photo-container img { transition: none !important; }
+}
+@media (hover: none) {
+  /* Pas de survol tactile : on garde simplement la photo principale */
+  #about .about-photo-container img.about-photo-alt { display: none; }
+}
+
+/* ==========================================================
+   Curseur personnalisé : petite goutte d'eau sur toute la page
+   ========================================================== */
+body.m-cursor-ready, body.m-cursor-ready a, body.m-cursor-ready button,
+body.m-cursor-ready input, body.m-cursor-ready textarea, body.m-cursor-ready * {
+  cursor: none;
+}
+#m-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  margin: -8px 0 0 -8px;
+  z-index: 10000;
+  pointer-events: none;
+  border-radius: 50% 50% 50% 0;
+  background: linear-gradient(135deg, #fb923c, #dc2626);
+  box-shadow: 0 2px 10px rgba(249,115,22,.55), inset -2px -2px 4px rgba(0,0,0,.25), inset 2px 2px 3px rgba(255,255,255,.35);
+  opacity: 0;
+  transform: translate(-9999px, -9999px) rotate(-45deg) scale(1);
+  transition: opacity .25s ease, scale .15s ease;
+  will-change: transform;
+}
+#m-dot.m-on { opacity: 1; }
+#m-dot.m-down { scale: .7; }
+#m-dot.m-link { scale: 1.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.m-cursor-ready, body.m-cursor-ready * { cursor: auto; }
+  #m-dot { display: none; }
+}
